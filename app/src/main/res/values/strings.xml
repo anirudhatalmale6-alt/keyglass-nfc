@@ -12,7 +12,7 @@
     <string name="ready_prompt">Ready to read your watch…</string>
     <string name="ready_to_read">Hold your tag to the phone…</string>
     <string name="hold_tag_now">Hold the tag to the back of your phone</string>
-    <string name="code_secured">Base Code secured in clipboard ✔ (auto-clears in 30s)</string>
+    <string name="code_secured">Base Code read ✔ — held in secure clipboard, auto-clears in 30s</string>
     <string name="base_code_copied">Base Code copied to secure clipboard</string>
     <string name="clipboard_cleared">Clipboard cleared</string>
     <string name="read_failed">Could not read a Base Code from this tag</string>

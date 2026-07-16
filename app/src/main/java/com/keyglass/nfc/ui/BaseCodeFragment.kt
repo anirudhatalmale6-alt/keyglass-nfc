@@ -12,8 +12,9 @@ import com.keyglass.nfc.SecureClipboard
 import com.keyglass.nfc.databinding.FragmentBaseCodeBinding
 
 /**
- * Tab 1 — reads an NFC tag and copies the Base Code into the secure in-app
- * clipboard. The code itself is never shown on screen.
+ * Tab 1 — reads an NFC tag, shows the Base Code (as in the mockup) and holds it
+ * in the secure in-app clipboard. The value stays in this app's memory only and
+ * is never written to the Android system clipboard. It auto-clears after 30s.
  */
 class BaseCodeFragment : Fragment() {
 
@@ -21,7 +22,7 @@ class BaseCodeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val clipboardListener: (Boolean) -> Unit = { held ->
-        _binding?.let { updateStatus(held) }
+        _binding?.let { render(held) }
     }
 
     override fun onCreateView(
@@ -54,11 +55,12 @@ class BaseCodeFragment : Fragment() {
         }
         binding.status.setText(R.string.ready_to_read)
         activity.armRead { text ->
-            if (!isAdded) return@armRead
+            if (!isAdded || _binding == null) return@armRead
             if (text.isNullOrEmpty()) {
                 binding.status.setText(R.string.read_failed)
                 Toast.makeText(requireContext(), R.string.read_failed, Toast.LENGTH_SHORT).show()
             } else {
+                // Holding the code fires the listener, which renders it on screen.
                 SecureClipboard.copyCode(text)
                 Toast.makeText(
                     requireContext(), R.string.base_code_copied, Toast.LENGTH_SHORT
@@ -68,8 +70,19 @@ class BaseCodeFragment : Fragment() {
         Toast.makeText(requireContext(), R.string.hold_tag_now, Toast.LENGTH_SHORT).show()
     }
 
-    private fun updateStatus(held: Boolean) {
-        binding.status.setText(if (held) R.string.code_secured else R.string.ready_prompt)
+    /** Reflects the current clipboard state in the UI. */
+    private fun render(held: Boolean) {
+        if (held) {
+            binding.codeDisplay.text = SecureClipboard.peek()
+            binding.codeDisplay.visibility = View.VISIBLE
+            binding.placeholder.visibility = View.GONE
+            binding.status.setText(R.string.code_secured)
+        } else {
+            binding.codeDisplay.text = ""
+            binding.codeDisplay.visibility = View.GONE
+            binding.placeholder.visibility = View.VISIBLE
+            binding.status.setText(R.string.ready_prompt)
+        }
     }
 
     override fun onDestroyView() {
