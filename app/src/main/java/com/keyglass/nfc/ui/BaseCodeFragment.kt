@@ -73,7 +73,7 @@ class BaseCodeFragment : Fragment() {
     /** Reflects the current clipboard state in the UI. */
     private fun render(held: Boolean) {
         if (held) {
-            binding.codeDisplay.text = SecureClipboard.peek()
+            binding.codeDisplay.text = maskCode(SecureClipboard.peek())
             binding.codeDisplay.visibility = View.VISIBLE
             binding.placeholder.visibility = View.GONE
             binding.status.setText(R.string.code_secured)
@@ -83,6 +83,22 @@ class BaseCodeFragment : Fragment() {
             binding.placeholder.visibility = View.VISIBLE
             binding.status.setText(R.string.ready_prompt)
         }
+    }
+
+    /**
+     * Masks the middle of the code for shoulder-surfing safety, keeping the
+     * first 3 and last 2 characters visible, e.g. "G7$kL2@qZp" -> "G7$•••••Zp".
+     * The full value is unaffected in the secure clipboard.
+     */
+    private fun maskCode(code: String?): String {
+        if (code.isNullOrEmpty()) return ""
+        val n = code.length
+        if (n <= 5) {
+            return if (n <= 1) code else code.take(1) + "•".repeat(n - 1)
+        }
+        val prefix = 3
+        val suffix = 2
+        return code.take(prefix) + "•".repeat(n - prefix - suffix) + code.takeLast(suffix)
     }
 
     override fun onDestroyView() {
