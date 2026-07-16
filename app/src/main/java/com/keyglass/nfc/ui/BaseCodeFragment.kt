@@ -35,6 +35,7 @@ class BaseCodeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.versionLabel.text = "KEY GLASS v" + com.keyglass.nfc.BuildConfig.VERSION_NAME
         binding.btnRead.setOnClickListener { armRead() }
         binding.btnClear.setOnClickListener {
             SecureClipboard.clear()
@@ -94,11 +95,16 @@ class BaseCodeFragment : Fragment() {
         if (code.isNullOrEmpty()) return ""
         val n = code.length
         if (n <= 5) {
-            return if (n <= 1) code else code.take(1) + "•".repeat(n - 1)
+            return if (n <= 1) code else code.take(1) + MASK.repeat(n - 1)
         }
         val prefix = 3
         val suffix = 2
-        return code.take(prefix) + "•".repeat(n - prefix - suffix) + code.takeLast(suffix)
+        return code.take(prefix) + MASK.repeat(n - prefix - suffix) + code.takeLast(suffix)
+    }
+
+    private companion object {
+        // Plain ASCII so it renders on every device/OEM font.
+        const val MASK = "*"
     }
 
     override fun onDestroyView() {

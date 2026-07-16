@@ -77,4 +77,14 @@
         android:clickable="true"
         android:focusable="true" />
 
+    <TextView
+        android:id="@+id/version_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/grey_text"
+        android:textSize="11sp" />
+
 </LinearLayout>
