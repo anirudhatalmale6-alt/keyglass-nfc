@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KEY GLASS</string>
+
+    <string name="tab_base_code">Base Code</string>
+    <string name="tab_identifiers">Identifiers</string>
+    <string name="tab_setup">Setup</string>
+
+    <!-- Base Code tab -->
+    <string name="read_watch">READ WATCH</string>
+    <string name="clear_clipboard">CLEAR CLIPBOARD</string>
+    <string name="ready_prompt">Ready to read your watch…</string>
+    <string name="ready_to_read">Hold your tag to the phone…</string>
+    <string name="hold_tag_now">Hold the tag to the back of your phone</string>
+    <string name="code_secured">Base Code secured in clipboard ✔ (auto-clears in 30s)</string>
+    <string name="base_code_copied">Base Code copied to secure clipboard</string>
+    <string name="clipboard_cleared">Clipboard cleared</string>
+    <string name="read_failed">Could not read a Base Code from this tag</string>
+
+    <!-- Identifiers tab -->
+    <string name="find_remember">Find &amp; remember your identifier</string>
+    <string name="no_identifiers">No identifiers yet. Add them in the Setup tab.</string>
+
+    <!-- Setup tab -->
+    <string name="nfc_configuration">NFC CONFIGURATION</string>
+    <string name="base_code_hint">Base Code</string>
+    <string name="scan_watch_to_write">SCAN WATCH TO WRITE</string>
+    <string name="write_protect">Write-protect (irreversible)</string>
+    <string name="identifiers_header">IDENTIFIERS</string>
+    <string name="add_identifier">Add Identifier</string>
+    <string name="edit_identifier">Edit Identifier</string>
+    <string name="ready_to_configure">Ready to configure…</string>
+    <string name="ready_to_write">Hold your tag to write…</string>
+    <string name="enter_base_code">Enter a Base Code first</string>
+
+    <string name="write_success">Base Code written successfully ✔</string>
+    <string name="write_not_writable">Tag is read-only or not writable</string>
+    <string name="write_too_large">Base Code is too large for this tag</string>
+    <string name="write_io_error">Write failed — keep the tag steady and retry</string>
+    <string name="write_format_error">Tag format not supported</string>
+
+    <!-- Dialogs -->
+    <string name="identifier_label">Identifier (2 characters, e.g. EM)</string>
+    <string name="account_label">Account (e.g. email, bank, crypto)</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="fields_required">Both fields are required</string>
+    <string name="delete_identifier">Delete Identifier</string>
+    <string name="delete_confirm">Delete \"%1$s : %2$s\"?\n\nThis action cannot be undone.</string>
+
+    <!-- NFC availability -->
+    <string name="nfc_unavailable">This device has no NFC hardware</string>
+    <string name="nfc_disabled">NFC is turned off. Please enable it in Settings.</string>
+
+    <string name="edit">Edit</string>
+</resources>

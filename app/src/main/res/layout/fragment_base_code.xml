@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/ready_prompt"
+        android:textColor="@color/grey_text"
+        android:textSize="15sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_card">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="🔒"
+            android:textSize="48sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/btn_read"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_green_button"
+        android:gravity="center"
+        android:text="@string/read_watch"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/btn_clear"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bg_secondary_button"
+        android:gravity="center"
+        android:text="@string/clear_clipboard"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+</LinearLayout>
