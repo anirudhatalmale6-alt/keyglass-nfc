@@ -2,11 +2,16 @@
 <resources>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-    <color name="green">#FF2E9E4F</color>
-    <color name="green_dark">#FF23803F</color>
-    <color name="blue">#FF3B6FB0</color>
+
+    <!-- Palette taken from the client's LOOPO 3FA screen designs. -->
+    <color name="green">#FF00B050</color>
+    <color name="green_dark">#FF00913F</color>
+    <color name="blue">#FF4472C4</color>
+    <color name="blue_dark">#FF2B5FBC</color>
+
     <color name="grey_light">#FFF2F2F2</color>
-    <color name="grey_mid">#FFE0E0E0</color>
+    <color name="grey_mid">#FFDDDDDD</color>
     <color name="grey_text">#FF666666</color>
+    <color name="grey_icon">#FF9E9E9E</color>
     <color name="red">#FFC62828</color>
 </resources>

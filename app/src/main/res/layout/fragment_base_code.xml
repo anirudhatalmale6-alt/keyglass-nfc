@@ -6,62 +6,83 @@
     android:padding="16dp"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/status"
+    <!-- Status row: left = state, right = "Tap COPY to copy Base Code" -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="@string/ready_prompt"
-        android:textColor="@color/grey_text"
-        android:textSize="15sp" />
+        android:orientation="horizontal"
+        android:baselineAligned="true"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ready_prompt"
+            android:textColor="@color/grey_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/copy_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/tap_copy_hint"
+            android:textColor="@color/grey_text"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_card">
+        android:background="@drawable/bg_frame_blue">
 
         <TextView
             android:id="@+id/code_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top|start"
-            android:gravity="start|center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:gravity="start|top"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
             android:paddingTop="14dp"
             android:paddingBottom="14dp"
             android:text=""
-            android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textColor="@color/blue"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:letterSpacing="0.03"
+            android:letterSpacing="0.02"
             android:visibility="gone"
             android:textIsSelectable="false" />
-
-        <TextView
-            android:id="@+id/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="24dp"
-            android:text="📲"
-            android:textSize="44sp" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/btn_read"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/bg_green_button"
+        android:layout_height="52dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_btn_blue"
         android:gravity="center"
-        android:text="@string/read_watch"
+        android:text="@string/read_nfc_tag"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:textSize="17sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/btn_copy"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_btn_green"
+        android:gravity="center"
+        android:text="@string/copy"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         android:clickable="true"
         android:focusable="true" />
 
@@ -69,11 +90,11 @@
         android:id="@+id/btn_clear"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:background="@drawable/bg_secondary_button"
+        android:background="@drawable/bg_btn_black"
         android:gravity="center"
         android:text="@string/clear_clipboard"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         android:clickable="true"
         android:focusable="true" />
 
@@ -85,6 +106,6 @@
         android:gravity="center"
         android:text=""
         android:textColor="@color/grey_text"
-        android:textSize="11sp" />
+        android:textSize="10sp" />
 
 </LinearLayout>

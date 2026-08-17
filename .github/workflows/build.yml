@@ -1,4 +1,4 @@
-name: Build KEY GLASS APK
+name: Build LOOPO 3FA APK
 
 on:
   push:
@@ -36,11 +36,11 @@ jobs:
       - name: Rename APK
         run: |
           mkdir -p out
-          cp app/build/outputs/apk/debug/app-debug.apk "out/KEY-GLASS-debug.apk"
+          cp app/build/outputs/apk/debug/app-debug.apk "out/LOOPO-3FA-debug.apk"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: KEY-GLASS-debug-apk
-          path: out/KEY-GLASS-debug.apk
+          name: LOOPO-3FA-debug.apk
+          path: out/LOOPO-3FA-debug.apk
           if-no-files-found: error

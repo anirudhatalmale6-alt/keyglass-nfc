@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keyglass.nfc.MainActivity
+import com.keyglass.nfc.Prefs
 import com.keyglass.nfc.R
 import com.keyglass.nfc.data.AppDatabase
 import com.keyglass.nfc.data.Identifier
@@ -18,7 +19,7 @@ import com.keyglass.nfc.databinding.FragmentSetupBinding
 import com.keyglass.nfc.nfc.NfcHelper
 import kotlinx.coroutines.launch
 
-/** Tab 3 — write the Base Code to a tag and manage identifiers. */
+/** Tab 3 — write the Base Code to a TAG, set the masking option, manage identifiers. */
 class SetupFragment : Fragment() {
 
     private var _binding: FragmentSetupBinding? = null
@@ -46,6 +47,11 @@ class SetupFragment : Fragment() {
         binding.list.adapter = adapter
         dao.getAll().observe(viewLifecycleOwner) { adapter.submitList(it) }
 
+        binding.maskBaseCode.isChecked = Prefs.maskBaseCode(requireContext())
+        binding.maskBaseCode.setOnCheckedChangeListener { _, checked ->
+            Prefs.setMaskBaseCode(requireContext(), checked)
+        }
+
         binding.btnWrite.setOnClickListener { armWrite() }
         binding.btnAdd.setOnClickListener { showEditDialog(null) }
     }
@@ -54,10 +60,10 @@ class SetupFragment : Fragment() {
         val activity = activity as? MainActivity ?: return
         val code = binding.baseCode.text?.toString()?.trim().orEmpty()
         if (code.isEmpty()) {
-            binding.baseCodeLayout.error = getString(R.string.enter_base_code)
+            binding.setupStatus.setText(R.string.enter_base_code)
+            Toast.makeText(requireContext(), R.string.enter_base_code, Toast.LENGTH_SHORT).show()
             return
         }
-        binding.baseCodeLayout.error = null
         if (!activity.nfc.isAvailable) {
             Toast.makeText(requireContext(), R.string.nfc_unavailable, Toast.LENGTH_LONG).show()
             return
@@ -69,7 +75,7 @@ class SetupFragment : Fragment() {
         val protect = binding.writeProtect.isChecked
         binding.setupStatus.setText(R.string.ready_to_write)
         activity.armWrite(code, protect) { result ->
-            if (!isAdded) return@armWrite
+            if (!isAdded || _binding == null) return@armWrite
             val msg = when (result) {
                 NfcHelper.WriteResult.SUCCESS -> getString(R.string.write_success)
                 NfcHelper.WriteResult.NOT_WRITABLE -> getString(R.string.write_not_writable)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- KEY GLASS uses NFC to read/write tags and VIBRATE for tap feedback.
+    <!-- LOOPO 3FA uses NFC to read/write tags and VIBRATE for tap feedback.
          Deliberately NO android.permission.INTERNET: the app is 100% offline. -->
     <uses-permission android:name="android.permission.NFC" />
     <uses-permission android:name="android.permission.VIBRATE" />

@@ -1,43 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KEY GLASS</string>
+    <string name="app_name">LoopO 3FA</string>
+    <string name="app_title">LOOPO 3FA</string>
 
     <string name="tab_base_code">Base Code</string>
     <string name="tab_identifiers">Identifiers</string>
     <string name="tab_setup">Setup</string>
 
     <!-- Base Code tab -->
-    <string name="read_watch">READ WATCH</string>
+    <string name="read_nfc_tag">READ NFC TAG</string>
+    <string name="copy">COPY</string>
     <string name="clear_clipboard">CLEAR CLIPBOARD</string>
-    <string name="ready_prompt">Ready to read your watch…</string>
-    <string name="ready_to_read">Hold your tag to the phone…</string>
-    <string name="hold_tag_now">Hold the tag to the back of your phone</string>
-    <string name="code_secured">Base Code read ✔ — held in secure clipboard, auto-clears in 30s</string>
-    <string name="base_code_copied">Base Code copied to secure clipboard</string>
+    <string name="ready_prompt">Ready to read your NFC TAG …</string>
+    <string name="ready_to_read">Hold your NFC TAG to the phone …</string>
+    <string name="hold_tag_now">Hold the NFC TAG to the back of your phone</string>
+    <string name="base_code_read">Base Code read ✔</string>
+    <string name="tap_copy_hint">Tap COPY to copy Base Code</string>
+    <string name="base_code_copied">Base Code copied to clipboard</string>
+    <string name="nothing_to_copy">Read your NFC TAG first</string>
     <string name="clipboard_cleared">Clipboard cleared</string>
-    <string name="read_failed">Could not read a Base Code from this tag</string>
+    <string name="read_failed">Could not read a Base Code from this TAG</string>
 
     <!-- Identifiers tab -->
     <string name="find_remember">Find &amp; remember your identifier</string>
     <string name="no_identifiers">No identifiers yet. Add them in the Setup tab.</string>
 
     <!-- Setup tab -->
-    <string name="nfc_configuration">NFC CONFIGURATION</string>
+    <string name="setup_intro">Set up your Base Code and your Identifiers</string>
+    <string name="base_code_header">BASE CODE</string>
     <string name="base_code_hint">Base Code</string>
-    <string name="scan_watch_to_write">SCAN WATCH TO WRITE</string>
-    <string name="write_protect">Write-protect (irreversible)</string>
+    <string name="write_nfc_tag">WRITE NFC TAG</string>
+    <string name="mask_base_code">Mask Base Code (partially masked ****)</string>
+    <string name="write_protect">Write-protect NFC TAG (irreversible)</string>
     <string name="identifiers_header">IDENTIFIERS</string>
     <string name="add_identifier">Add Identifier</string>
     <string name="edit_identifier">Edit Identifier</string>
-    <string name="ready_to_configure">Ready to configure…</string>
-    <string name="ready_to_write">Hold your tag to write…</string>
+    <string name="ready_to_write">Hold your NFC TAG to write …</string>
     <string name="enter_base_code">Enter a Base Code first</string>
 
     <string name="write_success">Base Code written successfully ✔</string>
-    <string name="write_not_writable">Tag is read-only or not writable</string>
-    <string name="write_too_large">Base Code is too large for this tag</string>
-    <string name="write_io_error">Write failed — keep the tag steady and retry</string>
-    <string name="write_format_error">Tag format not supported</string>
+    <string name="write_not_writable">TAG is read-only or not writable</string>
+    <string name="write_too_large">Base Code is too large for this TAG</string>
+    <string name="write_io_error">Write failed — keep the TAG steady and retry</string>
+    <string name="write_format_error">TAG format not supported</string>
 
     <!-- Dialogs -->
     <string name="identifier_label">Identifier (2 characters, e.g. EM)</string>

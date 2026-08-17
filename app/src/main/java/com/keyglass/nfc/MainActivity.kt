@@ -8,6 +8,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.keyglass.nfc.databinding.ActivityMainBinding
@@ -52,6 +53,27 @@ class MainActivity : AppCompatActivity() {
         }.attach()
 
         binding.tabs.tabGravity = TabLayout.GRAVITY_FILL
+
+        // Each tab carries its section's accent colour, as in the design.
+        applyTabAccent(binding.tabs.selectedTabPosition.coerceAtLeast(0))
+        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) = applyTabAccent(tab.position)
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
+    }
+
+    private fun applyTabAccent(position: Int) {
+        val accent = ContextCompat.getColor(
+            this,
+            when (position) {
+                0 -> R.color.blue
+                1 -> R.color.green
+                else -> R.color.black
+            }
+        )
+        binding.tabs.setSelectedTabIndicatorColor(accent)
+        binding.tabs.setTabTextColors(ContextCompat.getColor(this, R.color.grey_text), accent)
     }
 
     override fun onResume() {
