@@ -4,7 +4,7 @@ Native Android app adapted from LoopO NFC. Reads and writes a **Base Code** to a
 NFC TAG and lets you store short account **identifiers** locally. 100% offline —
 no Internet permission, no analytics, no cloud.
 
-(Formerly delivered as *KEY GLASS*; renamed to **LOOPO 3FA** in v1.0.)
+(Formerly delivered as *KEY GLASS*; renamed to **LOOPO 3FA** in v1.5.)
 
 ## Tabs
 
